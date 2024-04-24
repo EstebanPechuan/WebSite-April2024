@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+
+	<style>
+		:root {
+			--pry-color-rgb: 255, 62, 0;
+			--pry-color: #ff3e00;
+			
+			--dark-text-color: #fff;
+			--dark-background-color: #000410;
+			--dark-background-color-2: #000716;
+
+			
+			--text-color: #02011b;
+			--background-color: #f4f4f4;
+			--background-color-2: #efefef;
+
+			--ff-primary: 'Arial';
+			--ff-secondary: 'Verdana';
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: var(--ff-secondary);
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			font-family: var(--ff-primary);
+		}
+
+		::selection {
+			background-color: rgba(var(--pry-color-rgb), 0.9);
+			color: var(--background-color);
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+		
+		body {
+			background-color: var(--background-color);
+			color: var(--text-color);
+		}
+
+		li {
+			list-style: none;
+		}
+
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		button {
+			border: none;
+			background-color: transparent;
+			cursor: pointer;
+			color: #fff !important;
+		}
+
+		button:hover {
+			opacity: 0.9;
+		}
+
+		.section_wrapper {
+			max-width: 1100px;
+			margin: 0 auto;
+			padding: 30px 20px;
+		}
+
+		h2 {
+			font-size: 30px;
+		}
+
+		.skill[class*="javascript-fill"] {
+			--skill-color: rgb(247, 223, 30);
+		}
+
+		.skill[class*="html-fill"] {
+			--skill-color: rgb(228, 77, 38);
+		}
+
+		.skill[class*="css-fill"] {
+			--skill-color: rgb(21, 114, 182);
+		}
+
+		.skill[class*="sass"] {
+			--skill-color: rgb(205, 103, 153);
+		}
+
+		.skill[class*="react-fill"] {
+			--skill-color: rgb(0, 216, 255);
+		}
+
+		.skill[class*="svelte"] {
+			--skill-color: rgb(255, 62, 0);
+		}
+
+		.skill[class*="vue-16"] {
+			--skill-color: rgb(65, 184, 131);
+		}
+
+		.skill[class*="bootstrap-fill"] {
+			--skill-color: rgb(126, 19, 248);
+		}
+		
+		.skill[class*="badge-3d"] {
+			--skill-color: rgb(0, 96, 116);
+		}
+
+		.skill[class*="material-ui"] {
+			--skill-color: rgb(0, 127, 255);
+		}
+
+		.skill[class*="tailwind"] {
+			--skill-color: rgb(68, 168, 179);
+		}
+
+		.skill[class*="firebase-solid"] {
+			--skill-color: #ffca28;
+		}
+
+		.skill:hover {
+			color: var(--skill-color);
+		}
+	</style>
+</html>
