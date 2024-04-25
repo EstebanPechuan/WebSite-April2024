@@ -5,6 +5,10 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
@@ -20,9 +24,9 @@
 			--dark-background-color-2: #000716;
 
 			
-			--text-color: #02011b;
-			--background-color: #f4f4f4;
-			--background-color-2: #efefef;
+			--light-text-color: #02011b;
+			--light-background-color: #f4f4f4;
+			--light-background-color-2: #efefef;
 
 			--ff-primary: 'Arial';
 			--ff-secondary: 'Verdana';
@@ -32,11 +36,13 @@
 			margin: 0;
 			padding: 0;
 			box-sizing: border-box;
-			font-family: var(--ff-secondary);
+			/* font-family: var(--ff-secondary); */
+			font-family: "Noto Sans", sans-serif;
 		}
 
 		h1, h2, h3, h4, h5, h6 {
-			font-family: var(--ff-primary);
+			/* font-family: var(--ff-primary); */
+			font-family: "Rubik", sans-serif;
 		}
 
 		::selection {
@@ -48,7 +54,17 @@
 			scroll-behavior: smooth;
 		}
 		
-		body {
+		body,
+		body.dark {
+			--background-color: var(--dark-background-color);
+			--text-color: var(--dark-text-color);
+			background-color: var(--background-color);
+			color: var(--text-color);
+		}
+
+		body.light {
+			--background-color: var(--light-background-color);
+			--text-color: var(--light-text-color);
 			background-color: var(--background-color);
 			color: var(--text-color);
 		}

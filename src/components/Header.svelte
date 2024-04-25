@@ -1,11 +1,12 @@
 <script>
     import Icon from "@iconify/svelte";
     import { page } from "$app/stores";
-    import { language, dataLang } from '../store/store'
+    import { language, dataLang, themeColor } from '../store/store'
     import { data } from '$lib/data.js';
     import { browser } from "$app/environment";
 
     let idioma = 'es'
+    let themeColorStorage = 'dark'
 
     $: $language = idioma
     $: $dataLang = data.find((item) => item.lang === $language).data;
@@ -13,14 +14,28 @@
     const handleLang = (lang) => {
         idioma = lang
     }
+    
+    const handleTheme = (e) => {
+        e.target.checked ? $themeColor = 'light' : $themeColor = 'dark'
+        
+        let body = document.querySelector('body')
+
+        body.setAttribute('class', $themeColor)
+    }
 
     if (browser) {
         idioma = window.localStorage.getItem("languageSite") || "es";
+        themeColorStorage = window.localStorage.getItem("themeSite") || "dark";
         handleLang(idioma)
+
+        let body = document.querySelector('body')
+
+        body.setAttribute('class', `${themeColorStorage}`)
     }
 
     $: if (browser) {
         window.localStorage.setItem("languageSite", $language);
+        window.localStorage.setItem("themeSite", $themeColor);
     }
     
     $: liActive = $page.url.hash.substring(1) || 'about';
@@ -41,6 +56,11 @@
                 <Icon icon="twemoji:flag-argentina" />
             </button>
         </div>
+
+        <label class="switch">
+            <input type="checkbox" on:change={(e) => handleTheme(e)}>
+            <span class="slider"></span>
+        </label>
     
         <ul>
             <li>
@@ -89,8 +109,66 @@
         margin: 0 auto;
         padding: 0 20px;
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        gap: 20px;
+    }
+
+    .switch {
+        --secondary-container: #d6d6d6;
+        --primary: rgb(143, 143, 143);
+        font-size: 12px;
+        position: relative;
+        display: inline-block;
+        width: 3.7em;
+        height: 1.8em;
+        margin-right: auto;
+    }
+
+    .switch input {
+        display: none;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #313033;
+        transition: .2s;
+        border-radius: 30px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 1.4em;
+        width: 1.4em;
+        border-radius: 20px;
+        left: 0.2em;
+        bottom: 0.2em;
+        background-color: #aeaaae;
+        transition: .4s;
+    }
+
+    :global(body.light) input:checked + .slider::before {
+        background-color: var(--primary);
+    }
+
+    :global(body.light) input:checked + .slider {
+        background-color: var(--secondary-container);
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px var(--secondary-container);
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(1.9em);
     }
 
     ul {

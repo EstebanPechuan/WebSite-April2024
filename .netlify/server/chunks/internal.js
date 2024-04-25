@@ -122,7 +122,7 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!doctype html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="' + assets2 + '/favicon.png" />\n		<meta name="viewport" content="width=device-width, initial-scale=1" />\n		' + head + '\n	</head>\n	<body data-sveltekit-preload-data="hover">\n		<div style="display: contents">' + body + `</div>
+    app: ({ head, body, assets: assets2, nonce, env }) => '<!doctype html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="' + assets2 + '/favicon.png" />\n		<meta name="viewport" content="width=device-width, initial-scale=1" />\n		' + head + '\n\n		<link rel="preconnect" href="https://fonts.googleapis.com">\n		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">\n	</head>\n	<body data-sveltekit-preload-data="hover">\n		<div style="display: contents">' + body + `</div>
 	</body>
 
 	<style>
@@ -135,9 +135,9 @@ const options = {
 			--dark-background-color-2: #000716;
 
 			
-			--text-color: #02011b;
-			--background-color: #f4f4f4;
-			--background-color-2: #efefef;
+			--light-text-color: #02011b;
+			--light-background-color: #f4f4f4;
+			--light-background-color-2: #efefef;
 
 			--ff-primary: 'Arial';
 			--ff-secondary: 'Verdana';
@@ -147,11 +147,13 @@ const options = {
 			margin: 0;
 			padding: 0;
 			box-sizing: border-box;
-			font-family: var(--ff-secondary);
+			/* font-family: var(--ff-secondary); */
+			font-family: "Noto Sans", sans-serif;
 		}
 
 		h1, h2, h3, h4, h5, h6 {
-			font-family: var(--ff-primary);
+			/* font-family: var(--ff-primary); */
+			font-family: "Rubik", sans-serif;
 		}
 
 		::selection {
@@ -163,7 +165,17 @@ const options = {
 			scroll-behavior: smooth;
 		}
 		
-		body {
+		body,
+		body.dark {
+			--background-color: var(--dark-background-color);
+			--text-color: var(--dark-text-color);
+			background-color: var(--background-color);
+			color: var(--text-color);
+		}
+
+		body.light {
+			--background-color: var(--light-background-color);
+			--text-color: var(--light-text-color);
 			background-color: var(--background-color);
 			color: var(--text-color);
 		}
@@ -323,7 +335,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "oe2wpo"
+  version_hash: "1v255o3"
 };
 async function get_hooks() {
   return {};
