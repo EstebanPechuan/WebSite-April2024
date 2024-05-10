@@ -4,12 +4,12 @@
     import { language, dataLang, themeColor } from '../store/store'
     import { data } from '$lib/data.js';
     import { browser } from "$app/environment";
-    import { onMount } from 'svelte'
+    // import { onMount } from 'svelte'
 
     let idioma = 'es'
     let themeColorStorage = 'dark'
 
-    let openMenu = true
+    let openMenu = false
 
     $: $language = idioma
     $: $dataLang = data.find((item) => item.lang === $language).data;
