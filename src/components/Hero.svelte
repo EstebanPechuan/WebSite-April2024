@@ -2,7 +2,7 @@
     import { language, dataLang } from '../store/store'
     import { data } from '$lib/data.js';
     import user from '$lib/images/user-image-removebg.png'
-    import CV from '$lib/CV Web Development.pdf'
+    import CV from '$lib/CV Front End - Esteban Pechuan.pdf'
 
     $: $dataLang = data.find((item) => item.lang === $language).data;
 </script>
@@ -17,7 +17,7 @@
 
         <div class="about_me">
             <div class="div">
-                <img src={user} alt="">
+                <img class="user_img" src={user} alt="">
                 <p>{$dataLang.hero.paragraph[0]}</p>
                 <p>{$dataLang.hero.paragraph[1]}</p>
                 <p>{$dataLang.hero.paragraph[2]}</p>
@@ -39,16 +39,13 @@
             <a href="#contact">{$dataLang.hero.buttons[1]}</a>
         </div>
     </div>
-
-    <!-- <div class="image">
-        <img src={user} alt="">
-    </div> -->
 </section>
 
 <style>
     .section_wrapper {
         min-height: calc(100vh - 60px);
         width: 100%;
+        padding-bottom: 100px;
         display: grid;
         grid-template-columns: 1fr;
         gap: 40px;
@@ -88,6 +85,10 @@
         position: relative;
         top: -50px;
         right: -50px;
+    }
+
+    .user_img {
+        display: none;
     }
 
     .going_down {
@@ -132,5 +133,11 @@
         border-radius: 8px;
         padding: 10px 15px;
         font-size: 14px;
+    }
+
+    @media (min-width: 700px) {   
+        .user_img {
+            display: block;
+        }
     }
 </style>

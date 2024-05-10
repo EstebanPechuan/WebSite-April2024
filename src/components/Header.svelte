@@ -4,9 +4,12 @@
     import { language, dataLang, themeColor } from '../store/store'
     import { data } from '$lib/data.js';
     import { browser } from "$app/environment";
+    import { onMount } from 'svelte'
 
     let idioma = 'es'
     let themeColorStorage = 'dark'
+
+    let openMenu = true
 
     $: $language = idioma
     $: $dataLang = data.find((item) => item.lang === $language).data;
@@ -43,7 +46,15 @@
     export const handleLi = (listItem) => {
         liActive = listItem
     }
-
+    
+    // onMount(() => {
+    //     let body = document.querySelector('body')
+    //     body.addEventListener('click', (e) => closeMenu(e))
+    // })
+    
+    // const closeMenu = (e) => {
+    //     console.log(e)
+    // }
 </script>
 
 <header>
@@ -62,7 +73,7 @@
             <span class="slider"></span>
         </label>
     
-        <ul>
+        <ul class={ openMenu ? 'active' : '' }>
             <li>
                 <a on:click={ () => handleLi('about') } class={ liActive === 'about' ? 'active' : '' } href="#about">
                     {$dataLang.header[0]}
@@ -89,28 +100,39 @@
                 </a>
             </li>
         </ul>
+
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
+        <div class="burger" on:click={ () => openMenu = !openMenu }>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...$$props}>
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+        </div>
     </nav>
+
 </header>
 
 <style>
     header {
         width: 100%;
-        padding: 10px 0;
         position: sticky;
         top: 0;
         z-index: 9999;
         background: var(--background-color);
-        box-shadow: 0 4px 4px #0004;
+        filter: drop-shadow(0 4px 4px #0004);
+        /* overflow-y: hidden; */
     }
     
     nav {
         width: 100%;
         max-width: 1100px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 10px 20px;
+        background: var(--background-color);
         display: flex;
         align-items: center;
         gap: 20px;
+        position: relative;
     }
 
     .switch {
@@ -171,9 +193,27 @@
         transform: translateX(1.9em);
     }
 
+    .burger {
+        font-size: 20px;
+        cursor: pointer;
+        display: block;
+    }
+
     ul {
+        width: 100%;
         display: flex;
-        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+        background: var(--background-color);
+        position: absolute;
+        top: -650px;
+        /* right: -100%; */
+        transition: 0.4s;
+        z-index: -1;
+    }
+
+    ul.active {
+        top: 50px;
     }
 
     li {
@@ -226,5 +266,21 @@
     button.active {
         outline: 2px solid rgba(var(--pry-color-rgb), 0.4);
         border-radius: 8px;
+    }
+
+    @media (min-width: 700px) {
+        .burger {
+            display: none;
+        }
+
+        ul {
+            width: fit-content;
+            flex-direction: row;
+            gap: 20px;
+            position: initial;
+            top: 50px;
+            right: 0;
+            z-index: 0;
+        }
     }
 </style>

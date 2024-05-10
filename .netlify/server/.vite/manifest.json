@@ -68,9 +68,9 @@
       "_index.js"
     ]
   },
-  "src/lib/CV Web Development.pdf": {
-    "file": "_app/immutable/assets/CV Web Development.CV6WCVSY.pdf",
-    "src": "src/lib/CV Web Development.pdf"
+  "src/lib/CV Front End - Esteban Pechuan.pdf": {
+    "file": "_app/immutable/assets/CV Front End - Esteban Pechuan.BAH_CZjL.pdf",
+    "src": "src/lib/CV Front End - Esteban Pechuan.pdf"
   },
   "src/lib/images/bioconsulting.png": {
     "file": "_app/immutable/assets/bioconsulting.RlGj4rj5.png",
@@ -109,11 +109,11 @@
       "_index.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.D6laeLlr.css"
+      "_app/immutable/assets/_page.DRApX5wv.css"
     ],
     "assets": [
       "_app/immutable/assets/user-image-removebg.BoM4EE51.png",
-      "_app/immutable/assets/CV Web Development.CV6WCVSY.pdf",
+      "_app/immutable/assets/CV Front End - Esteban Pechuan.BAH_CZjL.pdf",
       "_app/immutable/assets/cuppa-canada.DM8-OTFG.png",
       "_app/immutable/assets/bioconsulting.RlGj4rj5.png",
       "_app/immutable/assets/foro-21.CBgiB6BN.png",

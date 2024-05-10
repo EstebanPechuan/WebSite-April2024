@@ -11,7 +11,7 @@ export const data = [
                     'Bienvenidos a mi portfolio online!',
                     'Soy programador front end con más de 5 años de experiencia en el campo. Mi pasión por la maquetación web y el detalle pixel perfect impulsa cada uno de mis proyectos. Desde los primeros trazos en el diseño hasta la implementación final, me esfuerzo por crear experiencias web excepcionales que cautiven a los usuarios.',
                     'Mi trayectoria en el desarrollo front end abarca una amplia gama de tecnologías y frameworks, incluyendo React, Svelte, Vue, entre otros. Esta diversidad me ha permitido adquirir un conocimiento profundo y versátil, lo que me capacita para adaptarme a cualquier desafío y ofrecer soluciones innovadoras.',
-                    'Te invito a explorar mi portfolio y descubrir el mundo que he creado con líneas de código. Si estás buscando un colaborador entusiasta y comprometido para tu próximo proyecto, ¡no dudes en ponerte en contacto conmigo! Estoy emocionado de conocer nuevos desafíos y ayudarte a convertir tus ideas en realidad.'
+                    'Te invito a explorar mi portfolio y descubrir el mundo que he creado con líneas de código. Si estás buscando un colaborador entusiasta y comprometido para tu próximo proyecto, ¡No dudes en ponerte en contacto conmigo! Estoy emocionado de conocer nuevos desafíos y ayudarte a convertir tus ideas en realidad.'
                 ],
                 buttons: [
                     'Descargar CV',
