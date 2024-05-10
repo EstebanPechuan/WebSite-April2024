@@ -22,7 +22,6 @@
     <swiper-container
         slides-per-view={1}
         centered-slides={true}
-        space-between={10}
         navigation-nextEl={".swiper-button-next"}
         navigation-prevEl={".swiper-button-prev"}
         loop={true}
@@ -65,7 +64,7 @@
             </div>
         </swiper-slide>
         
-        <swiper-slide>
+        <!-- <swiper-slide>
             <div class="container_slide">
                 <div class="container_image">
                     <img src={bioconsulting} alt="">
@@ -93,7 +92,7 @@
                 <div class="container_number">02</div>
 
             </div>
-        </swiper-slide>
+        </swiper-slide> -->
 
         <swiper-slide>
             <div class="container_slide">
@@ -123,7 +122,7 @@
                     </div>
                 </div>
                 
-                <div class="container_number">03</div>
+                <div class="container_number">02</div>
 
             </div>
         </swiper-slide>
@@ -156,7 +155,7 @@
                     </div>
                 </div>
                 
-                <div class="container_number">04</div>
+                <div class="container_number">03</div>
 
             </div>
         </swiper-slide>
