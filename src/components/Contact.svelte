@@ -4,7 +4,7 @@
     import { language, dataLang } from '../store/store'
     import { data } from '$lib/data.js';
 
-    $: $dataLang = data.find((item) => item.lang === $language).data;
+    $: $dataLang = data.find((item) => item.lang === $language)?.data || {};
 
     export let form
 </script>
@@ -33,7 +33,7 @@
 
                 <span>
                     <Icon icon="ion:location-outline" />
-                    <p>Cairns City, QLD 4870</p>
+                    <p>Perth, WA 6062</p>
                 </span>
             </div>
         </div>
